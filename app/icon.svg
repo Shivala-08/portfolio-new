@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="47 Tabs Open">
+  <!--
+    File-based metadata (app/icon.svg) — Next serves this as the tab icon, which
+    is what stops the browser from falling back to requesting /favicon.ico.
+
+    The mark is the site's own metaphor: an application window (white chrome,
+    1px line, 10px-ish radius family) with a coral title bar, and the joke
+    spelled out in it. Palette values are the globals.css tokens, hard-coded
+    because an SVG asset can't read CSS variables.
+  -->
+  <rect x="2.5" y="2.5" width="27" height="27" rx="5" fill="#ffffff" stroke="#c6bfb2" stroke-width="1" />
+  <path d="M2.5 7.5a5 5 0 0 1 5-5h17a5 5 0 0 1 5 5V11h-27z" fill="#e2654a" />
+  <text
+    x="16"
+    y="23.4"
+    text-anchor="middle"
+    font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+    font-size="16"
+    font-weight="700"
+    letter-spacing="-0.6"
+    fill="#26231f"
+  >47</text>
+</svg>

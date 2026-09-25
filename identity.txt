@@ -1,0 +1,1219 @@
+
+Pallav Dholariya — Portfolio Knowledge Base
+
+1. Core Identity
+
+Name: Pallav Dholariya
+GitHub: Shivala-08
+Location: Pune, India
+Education: B.Tech CSE (AI & ML), Newton School of Technology × ADYPU
+Current positioning: AI/ML Engineer · Systems Builder
+
+Personal brand line
+
+Curious enough to learn anything. Disciplined enough to ship.
+
+Current status
+
+Building → measuring → breaking → fixing → shipping.
+
+Availability
+
+Currently open to:
+
+* Software Engineering internships
+* AI/ML internships
+* Systems/backend opportunities
+* Developer infrastructure work
+* Performance-focused engineering opportunities
+
+Your current GitHub profile explicitly presents you as open to Software Engineering / AI/ML internships.  
+
+⸻
+
+2. The Most Important Portfolio Positioning
+
+Your portfolio should NOT present you simply as:
+
+Full-stack developer
+
+That’s too generic.
+
+Your strongest current identity is:
+
+AI/ML Engineer · Systems Builder
+
+Because your projects span three interesting technical areas:
+
+AI / ML
+   │
+   ├── Synapse
+   │
+Systems / Infrastructure
+   │
+   ├── Deploy Forge
+   │
+Performance / Graphics
+   │
+   └── The Skynet
+
+And then your frontend projects demonstrate that you can actually turn those systems into polished experiences.
+
+⸻
+
+3. Your Engineering Philosophy
+
+Your current README contains five principles that are actually worth preserving in the portfolio.  
+
+01 — Constraints before architecture
+
+Understand the actual limitation before choosing the solution.
+
+02 — Smallest useful system first
+
+Build enough to prove the idea before expanding the abstraction.
+
+03 — Measure before optimizing
+
+No performance claim without a measurement.
+
+04 — Optimize the bottleneck
+
+Don’t rewrite the world because one component is slow.
+
+05 — Ship → observe → iterate
+
+A deployed system teaches more than an unfinished abstraction.
+
+Portfolio interpretation
+
+These aren’t just motivational quotes.
+
+They give you a design philosophy:
+
+Pallav likes understanding constraints, building the smallest useful system, measuring it, finding bottlenecks, and iterating.
+
+That should become a recurring theme throughout your portfolio.
+
+⸻
+
+4. Your Technical Stack
+
+Current publicly stated stack:
+
+Languages
+
+* Python
+* JavaScript
+* SQL
+* Bash
+
+Frontend
+
+* React
+* Next.js
+* Tailwind
+* HTML
+* CSS
+* Framer Motion
+* Lenis
+
+Backend
+
+* FastAPI
+
+Data
+
+* PostgreSQL
+* Supabase
+
+Infrastructure
+
+* Docker
+* GitHub Actions
+* Vercel
+* Cloudflare
+* Linux
+* ngrok
+
+Tools
+
+* VS Code
+* Git
+* Claude Code
+* Antigravity IDE
+
+This is currently represented directly on your GitHub README.  
+
+⸻
+
+5. Portfolio Skill Architecture
+
+Don’t display this as a giant list.
+
+Instead, your portfolio should interpret your skills as capabilities.
+
+AI / ML Systems
+
+RAG
+Hybrid Retrieval
+Knowledge Graphs
+Embeddings
+Cross-Encoder Reranking
+Model Routing
+Evaluation
+Semantic Caching
+
+Systems / Infrastructure
+
+GitHub Actions
+CI/CD
+Deployment pipelines
+Artifact processing
+Build systems
+Linux
+Docker
+Cloud deployment
+
+Performance / Graphics
+
+WebGL
+GPU rendering
+Shaders
+Matrix mathematics
+Raycasting
+Bundle optimization
+Browser performance
+
+Full-stack Engineering
+
+React
+Next.js
+FastAPI
+PostgreSQL
+Supabase
+REST/API integration
+
+This is much more valuable to a recruiter than simply seeing 25 technology logos.
+
+⸻
+
+6. FLAGSHIP PROJECT #1 — DEPLOY FORGE
+
+Identity
+
+Name: Deploy Forge
+
+Category: Developer Infrastructure / Deployment Systems
+
+Status: Production
+
+Role: Solo
+
+Your current profile describes it as Git-backed deployment infrastructure.  
+
+⸻
+
+One-line portfolio description
+
+Use:
+
+A Git-backed deployment pipeline that turns repositories into deployed sites through automated builds, artifact processing, GitHub Actions and Vercel.
+
+⸻
+
+7. Deploy Forge — Why You Built It
+
+Your actual motivation is strong:
+
+You were repeatedly doing:
+
+clone
+↓
+install
+↓
+build
+↓
+copy
+↓
+commit
+↓
+push
+↓
+deploy
+
+for static-site prototypes.
+
+Instead of repeating that process manually, you built infrastructure around it.
+
+Your README explains that the goal was to move arbitrary compilation outside the application’s request lifecycle because typical serverless environments aren’t designed to compile arbitrary code.  
+
+Portfolio narrative
+
+I wasn’t trying to build another dashboard. I was trying to remove a repetitive deployment workflow by turning it into infrastructure.
+
+That’s much stronger.
+
+⸻
+
+8. Deploy Forge — Architecture
+
+Current documented flow:
+
+GitHub Repository
+        ↓
+Deploy Forge API
+        ↓
+repository_dispatch
+        ↓
+GitHub Actions Runner
+        ↓
+Isolated Build Zone
+        ↓
+Clone repository
+        ↓
+npm install
+        ↓
+npm build
+        ↓
+Path Rewriter
+        ↓
+Git Commit & Push
+        ↓
+Vercel Auto-Redeploy
+        ↓
+Live URL
+
+This is one of the strongest pieces of your portfolio because it demonstrates actual systems thinking.  
+
+⸻
+
+9. Deploy Forge — Interesting Technical Problem
+
+The strongest technical detail isn’t the deployment button.
+
+It’s sub-path hosting.
+
+A generated site may contain:
+
+<script src="/main.js">
+
+But your deployment can live at:
+
+/sites/{id}/
+
+Therefore:
+
+/sites/{id}/main.js
+
+is required instead of:
+
+/main.js
+
+Your pipeline currently performs recursive HTML/CSS rewriting inside the build output before committing the artifacts.  
+
+This should be a featured case study in the portfolio.
+
+Call it:
+
+Making arbitrary static sites work under dynamic sub-paths
+
+That’s a much more compelling story than “I built a deployment platform.”
+
+⸻
+
+10. Deploy Forge — Tradeoff
+
+Your current README documents an important architectural tradeoff:
+
+Git commits back to the main repository provide simple persistence and version history, but each deployment can cause Vercel to redeploy the Deploy Forge platform itself, producing a documented 30–60 second propagation delay.  
+
+This is exactly the kind of information your portfolio should surface.
+
+Because it demonstrates:
+
+You understand that architecture is about tradeoffs, not just features.
+
+⸻
+
+11. Deploy Forge — Metrics
+
+Current documented metric:
+
+Local production build: ~15 seconds
+
+Important distinction:
+
+This is not the complete deployment time.
+
+Your README separately documents:
+
+30–60 second Vercel propagation delay.  
+
+Therefore your portfolio should present these as separate measurements.
+
+Don’t say:
+
+Deploy Forge deploys sites in 15 seconds.
+
+Say:
+
+Local production build: ~15s
+Vercel propagation: ~30–60s
+
+That is technically honest.
+
+⸻
+
+12. Deploy Forge — Portfolio Sections
+
+Your portfolio should eventually have:
+
+Problem
+Architecture
+Deployment Lifecycle
+Sub-path Challenge
+Security Model
+Failure Modes
+Tradeoffs
+Benchmarks
+Demo
+Source
+
+⸻
+
+13. FLAGSHIP PROJECT #2 — THE SKYNET
+
+Identity
+
+Name: The Skynet
+
+Category: WebGL / Performance / Graphics Engineering
+
+Status: Production
+
+Role: Solo
+
+Your current profile describes it as a custom WebGL portfolio OS.  
+
+⸻
+
+14. The Skynet — The Real Story
+
+The important story isn’t:
+
+“I built a 3D portfolio.”
+
+It’s:
+
+“I replaced a high-level 3D rendering stack with a custom GPU renderer after measuring its cost.”
+
+That is much more interesting.
+
+⸻
+
+15. The Skynet — Before / After
+
+Original stack:
+
+Three.js
++
+React Three Fiber
+
+Result:
+
+883 KB JavaScript chunk
+
+You then removed the framework dependencies and implemented:
+
+mini-renderer.ts
+~500 lines
+WebGL draw calls
+
+Result:
+
+24.9 KB
+
+Your README reports this as a 97% reduction in the 3D bundle cost.  
+
+This should be a hero metric on your portfolio.
+
+883 KB
+   ↓
+24.9 KB
+97% reduction
+
+⸻
+
+16. The Skynet — Rendering Architecture
+
+Current documented flow:
+
+Mouse / Scroll
+       ↓
+Interaction Layer
+       ↓
+Raycast Hit Testing
+       ↓
+Matrix Math
+       ↓
+WebGL MiniRenderer
+       ↓
+Perspective Camera
+       ↓
+Mesh Instancing
+       ↓
+Point Cloud
+       ↓
+Framebuffer
+
+Your implementation includes custom matrix math and direct WebGL rendering.  
+
+⸻
+
+17. The Skynet — Debugging Story
+
+This is portfolio gold.
+
+During development:
+
+Camera raycast picking failed
+        ↓
+Investigated transforms
+        ↓
+Found column-major matrix inversion issue
+        ↓
+Corrected row/column indices
+        ↓
+Fixed Mat4.invert
+
+Your current README explicitly documents this debugging process.  
+
+This is exactly the kind of content a technical interviewer likes.
+
+Because it shows:
+
+You don’t just use libraries—you can debug the mathematics underneath them.
+
+⸻
+
+18. The Skynet — Other Technical Details
+
+Your current profile mentions:
+
+* GPU rendering
+* WebGL
+* perspective camera
+* shaded mesh instancing
+* per-vertex point clouds
+* raycast hit testing
+* matrix math
+* fragment shaders
+* shader gradients
+* custom renderer
+
+Your portfolio should have a dedicated:
+
+Under the Hood
+
+section for this project.
+
+⸻
+
+19. FLAGSHIP PROJECT #3 — SYNAPSE
+
+Identity
+
+Name: Synapse
+
+Category: AI / Retrieval / Knowledge Systems
+
+Status: Active Development
+
+Role: Solo / personal R&D
+
+Your current profile describes it as a:
+
+Knowledge Intelligence Engine
+
+exploring hybrid retrieval, knowledge-graph-augmented RAG and adaptive complexity model routing.  
+
+⸻
+
+20. Synapse — Architecture
+
+Current architecture:
+
+User Query
+    ↓
+Semantic Cache
+    │
+    ├── Cache Hit → Immediate Response
+    │
+    └── Cache Miss
+            ↓
+      Complexity Classifier
+            │
+       ┌────┴────┐
+       ↓         ↓
+   Fast Path   Deep Reasoning
+       ↓         ↓
+ Llama 3.1    Nemotron 3 Ultra
+       ↑         ↑
+       └── Context ──┘
+              ↑
+        Hybrid Search
+        /           \
+   Vector Store   NetworkX Graph
+
+That’s a serious system architecture for a student project.  
+
+⸻
+
+21. Synapse — Current Evaluation
+
+This is a new and important piece of portfolio evidence that wasn’t present in our earlier audits.
+
+Your current profile now reports:
+
+* 62.5% retrieval accuracy
+* 0.875 Recall@5
+* 0.667 MRR
+* 207 ms query latency
+* 40-question ground-truth dataset
+* LLM-disabled evaluation
+* local SentenceTransformer sandbox
+
+These numbers are currently stated directly in your GitHub README.  
+
+This is exactly the direction I wanted you to move toward.
+
+⸻
+
+22. Synapse — Most Interesting Experiment
+
+Your README reports that adding a cross-encoder reranker produced the largest accuracy improvement:
+
++11 points
+
+but introduced approximately:
+
+200 ms latency penalty
+
+That’s a fantastic portfolio story.
+
+Because it demonstrates:
+
+Optimization
+      ↓
+Accuracy improves
+      ↓
+Latency worsens
+      ↓
+Tradeoff
+
+Portfolio case-study title:
+
+When better retrieval made the system slower
+
+That is much more compelling than:
+
+“Built a RAG pipeline.”
+
+⸻
+
+23. Synapse — Failure Mode
+
+You already document one:
+
+Multi-hop synthesis
+
+The retrieval system can struggle with questions requiring information from multiple documents because independent semantic similarity can fail to retrieve the required cross-document context.  
+
+This is excellent portfolio material.
+
+Keep it.
+
+Don’t hide failures.
+
+⸻
+
+24. Synapse — The Portfolio Story
+
+Use:
+
+Problem
+ ↓
+Hybrid retrieval architecture
+ ↓
+Baseline
+ ↓
+Reranker experiment
+ ↓
++11 accuracy points
+ ↓
++200ms latency
+ ↓
+Tradeoff
+ ↓
+Current limitation:
+multi-hop synthesis
+
+That’s an actual engineering experiment.
+
+⸻
+
+25. OMNITRIX OS
+
+Identity
+
+Name: Omnitrix OS
+
+Category: Interactive Frontend / Graphics / Creative Engineering
+
+Your GitHub describes it as an immersive browser-based Ben 10 Omnitrix OS using Next.js, React Three Fiber, GSAP and procedural Web Audio.  
+
+Portfolio purpose
+
+This project proves:
+
+* frontend engineering
+* 3D interaction
+* animation
+* browser APIs
+* audio
+* UX
+* creative implementation
+
+It’s your “I can make engineering enjoyable to interact with” project.
+
+⸻
+
+26. Omnitrix OS — Existing Performance Claim
+
+Your profile currently states:
+
+116 FPS
+
+on mobile and desktop.  
+
+If this metric remains on the portfolio, document:
+
+* device
+* browser
+* scene
+* measurement method
+* whether it is average / peak / sustained
+
+Otherwise don’t present it as a general performance guarantee.
+
+⸻
+
+27. UDHAAR LEDGER
+
+Identity
+
+Category: Real-world Product / Backend / Automation
+
+This project is valuable because it demonstrates that you don’t only build things because they’re technically interesting.
+
+It addresses a practical workflow:
+
+digitalizing informal credit/ledger tracking for shopkeepers.
+
+Portfolio signal:
+
+Problem awareness
++
+Product thinking
++
+Backend
++
+Automation
++
+Practical UX
+
+Keep it.
+
+⸻
+
+28. CINEVAULT
+
+Identity
+
+Category: Full-stack / API / Product UI
+
+Current profile describes it as:
+
+Full-stack movie discovery application exploring API integration, discovery UX, and scalable frontend patterns.  
+
+This should be a supporting project, not a flagship.
+
+⸻
+
+29. Your Portfolio Project Hierarchy
+
+I would now structure your personal portfolio as:
+
+Tier 1 — Engineering Flagships
+
+🚀 Deploy Forge
+
+Infrastructure
+
+🌐 The Skynet
+
+Graphics / Performance
+
+🧠 Synapse
+
+AI / ML
+
+⸻
+
+Tier 2 — Product / Creative Engineering
+
+⌚ Omnitrix OS
+
+Interactive systems
+
+💰 Udhaar Ledger
+
+Real-world product
+
+⸻
+
+Tier 3 — Supporting
+
+🎬 CineVault
+
+Full-stack
+
+Everything else should be secondary.
+
+⸻
+
+30. What Your Portfolio Should Say About You
+
+Don’t say:
+
+“I know Python, React, Next.js, FastAPI, Docker, etc.”
+
+Instead:
+
+I build systems across AI, infrastructure and interactive computing—and I like understanding what happens underneath the abstractions.
+
+Then prove it:
+
+Deploy Forge
+→ deployment infrastructure
+The Skynet
+→ custom WebGL renderer
+Synapse
+→ retrieval evaluation
+Omnitrix OS
+→ interactive systems
+
+⸻
+
+31. Your Differentiator
+
+This is the biggest insight from the current profile.
+
+Your differentiator isn’t:
+
+AI
+
+because thousands of students say AI.
+
+It isn’t:
+
+Full-stack
+
+because thousands say that too.
+
+It’s:
+
+You seem unusually interested in what happens underneath the abstraction.
+
+Examples:
+
+Deploy Forge
+
+You don’t just deploy.
+
+You investigate the deployment pipeline.
+
+The Skynet
+
+You don’t just use a 3D engine.
+
+You investigated the renderer underneath it.
+
+Synapse
+
+You don’t just build RAG.
+
+You benchmark retrieval and study accuracy/latency tradeoffs.
+
+That’s your actual personal-brand thread.
+
+⸻
+
+32. Your Portfolio’s Core Narrative
+
+I would build the entire portfolio around:
+
+Build → Measure → Break → Understand → Improve → Ship
+
+Not:
+
+Learn → Build → Add another technology → Repeat.
+
+⸻
+
+33. Suggested Portfolio Hero
+
+Your portfolio could open with something along the lines of:
+
+Pallav Dholariya
+
+AI/ML Engineer · Systems Builder
+
+I build AI systems, developer infrastructure, and performance-focused interactive experiences.
+
+Curious enough to learn anything. Disciplined enough to ship.
+
+Then three immediate cards:
+
+🚀 Deploy Forge
+Infrastructure
+🌐 The Skynet
+WebGL / Performance
+🧠 Synapse
+AI / Retrieval
+
+⸻
+
+34. Your Portfolio Should Have a “Lab” Section
+
+This is an opportunity your GitHub doesn’t fully exploit.
+
+Create:
+
+The Lab
+
+For things you’re currently investigating:
+
+* RAG chunking strategies
+* retrieval evaluation
+* GPU rendering
+* WebGL internals
+* process isolation
+* deployment systems
+
+Your current GitHub already has a Lab Notes section containing these exact research interests.  
+
+This is extremely useful for a personal portfolio.
+
+It makes you appear like someone who explores technical questions, rather than someone who only displays finished projects.
+
+⸻
+
+35. Your Current Lab Topics
+
+Your current profile mentions:
+
+RAG Chunking
+
+Investigating:
+
+dynamic semantic boundary chunking vs fixed-token limits.
+
+RAG Evaluation
+
+Investigating:
+
+repeatable automated retrieval metrics.
+
+GPU Context
+
+Investigating:
+
+vertex/index buffers and shaders underneath rendering abstractions.
+
+Process Isolation
+
+Investigating:
+
+safely isolating user-submitted scripts during compilation.
+
+These are excellent portfolio “currently exploring” topics.  
+
+⸻
+
+36. Portfolio Content Architecture
+
+I’d structure your personal website as:
+
+HOME
+│
+├── About
+│
+├── Work
+│   ├── Deploy Forge
+│   ├── The Skynet
+│   ├── Synapse
+│   ├── Omnitrix OS
+│   └── Udhaar Ledger
+│
+├── Lab
+│   ├── RAG Evaluation
+│   ├── WebGL Internals
+│   ├── Process Isolation
+│   └── Deployment Systems
+│
+├── Engineering
+│   ├── Architecture
+│   ├── Experiments
+│   └── Benchmarks
+│
+├── GitHub
+│
+└── Contact
+
+⸻
+
+37. Each Project Page Should Follow One Template
+
+For your portfolio, don’t make generic project cards.
+
+Each flagship project should have:
+
+01 — Problem
+02 — Why I Built It
+03 — Architecture
+04 — The Interesting Constraint
+05 — Implementation
+06 — Experiment
+07 — Results
+08 — What Broke
+09 — Tradeoffs
+10 — What I'd Do Next
+11 — Demo
+12 — Source
+
+That would make your portfolio feel significantly more mature.
+
+⸻
+
+38. Your Portfolio Metrics Dashboard
+
+You now have enough real numbers to create a small engineering metrics section.
+
+For example:
+
+883 KB → 24.9 KB
+The Skynet renderer
+~15s
+Deploy Forge local production build
+0.875
+Synapse Recall@5
+0.667
+Synapse MRR
+207ms
+Synapse query latency
++11 pts
+Cross-encoder retrieval improvement
+
+But make sure every metric has a tooltip/context explaining what it actually measures.
+
+This is much better than generic:
+
+10+ Projects
+1000+ Lines
+50K+ Users
+
+because your metrics are actually connected to engineering decisions.  
+
+⸻
+
+39. What NOT to Put on Your Portfolio
+
+Avoid:
+
+❌ Generic skill bars
+
+Python █████████ 90%
+React ██████████ 95%
+
+They mean almost nothing.
+
+❌ Fake experience numbers
+
+5+ years experience
+100+ projects
+10K+ users
+
+unless true.
+
+❌ Giant technology cloud
+
+You already have enough technologies.
+
+❌ Generic “About Me” essay
+
+Your work should tell the story.
+
+❌ Excessive GitHub widgets
+
+Your GitHub can have those.
+
+Your personal portfolio should be more intentional.
+
+⸻
+
+40. Your Portfolio Personality
+
+Based on the current work, I would define the visual personality as:
+
+Technical Futurism
+
+Not cyberpunk for the sake of cyberpunk.
+
+Instead:
+
+Terminal
++
+Systems
++
+AI
++
+GPU
++
+Data
++
+Minimal UI
+
+Your Omnitrix/Skynet aesthetic can provide personality, while the case studies provide seriousness.
+
+⸻
+
+41. Your Portfolio Should Feel Like a Lab
+
+Not:
+
+“Welcome to my portfolio.”
+
+But:
+
+“Here’s what I’m building, breaking, measuring and learning.”
+
+That matches your actual GitHub much better.
+
+⸻
+
+42. Current Portfolio-Ready Evidence
+
+Here’s the knowledge your portfolio can safely surface right now:
+
+Evidence	Current information
+Education	B.Tech CSE (AI & ML), Newton School of Technology × ADYPU
+Location	Pune, India
+Position	AI/ML Engineer · Systems Builder
+Deploy Forge	Git-backed deployment infrastructure
+Deploy Forge build	~15s local production build
+Deploy Forge propagation	~30–60s documented Vercel delay
+The Skynet	Custom WebGL renderer
+The Skynet renderer	~500 lines
+The Skynet bundle	883 KB → 24.9 KB
+The Skynet reduction	~97%
+Synapse	Hybrid retrieval + knowledge graph RAG
+Synapse dataset	40-question ground truth
+Synapse accuracy	62.5%
+Synapse Recall@5	0.875
+Synapse MRR	0.667
+Synapse latency	207 ms
+Reranker improvement	+11 points
+Reranker tradeoff	~200 ms latency penalty
+Omnitrix OS	Interactive 3D browser system
+Omnitrix performance claim	116 FPS — methodology should be documented
+Current interests	RAG, retrieval evaluation, GPU/WebGL, process isolation
+
+The current GitHub README is the source for these project claims and measurements.  
+
+⸻
+
+43. One important thing I noticed this time
+
+Your profile has actually moved from the previous version.
+
+The Synapse evaluation is now concrete.
+
+Previously I was telling you:
+
+“You need AI evidence.”
+
+Now you actually have:
+
+40-question ground truth
++
+62.5% accuracy
++
+0.875 Recall@5
++
+0.667 MRR
++
+207ms latency
++
+reranker experiment
++
+failure analysis
+
+That changes the portfolio strategy.
+
+Synapse is no longer just “an AI project.”
+
+It can now become a real technical case study.
+
+That’s a meaningful upgrade.  
+
+⸻
+
+44. The 3 projects I would feature most prominently
+
+🚀 Deploy Forge
+
+Question it answers:
+
+Can Pallav design infrastructure?
+
+🌐 The Skynet
+
+Question it answers:
+
+Can Pallav understand and optimize systems underneath abstractions?
+
+🧠 Synapse
+
+Question it answers:
+
+Can Pallav actually experiment with AI rather than just call an API?
+
+Together:
+
+Infrastructure + Systems + AI
+
+That’s a very strong portfolio identity.
+
+⸻
+
+45. Your portfolio’s one-sentence identity
+
+If I had to compress everything I’ve learned from your current GitHub into one sentence:
+
+Pallav is an AI/ML-focused systems builder who likes taking interesting constraints, going beneath high-level abstractions, measuring what he builds, and shipping the result.
+
+That is the knowledge base I would build the entire personal portfolio around.
+
+And importantly, that’s not an invented marketing persona—the current projects actually provide evidence for each part of that description.  

@@ -1,0 +1,174 @@
+Book Content — 5 Sheets per Project
+
+1. Context Shifter
+
+Sheet 1 — Overview
+
+Context Shifter
+A native macOS menu bar app that turns any LLM or app conversation into a portable context card you can paste into a new session to resume work.
+
+Sheet 2 — Problem
+
+Switching between ChatGPT, Claude, or any other AI tool means losing the thread — you re-explain context from scratch every time you change apps or start a new session.
+
+Sheet 3 — Build
+
+100% local via Ollama — no API key required, no telemetry. Native SwiftUI menu bar app for macOS 13+. Captures conversations from ChatGPT, Claude, or any macOS app and extracts them into a structured, portable context card.
+
+Sheet 4 — Result
+
+Free and open source under the MIT license. The first public release shipped as source-only (v0.1.0), self-built through ./Scripts/build-app.sh.
+
+Sheet 5 — Links
+
+GitHub: Shivala-08/context-shifter · Live: context-transfer.vercel.app
+
+⸻
+
+2. UniSync
+
+Sheet 1 — Overview
+
+UniSync
+College Portal → GitHub Code Synchronizer. Solve on the portal, submit, and it lands in your GitHub repo — automatically.
+
+Sheet 2 — Problem
+
+Coding portal/LMS submissions live and die on the portal itself — no public record, no personal GitHub history, and no persistent proof of the work outside the platform.
+
+Sheet 3 — Build
+
+Manifest V3 Chrome extension. Patches fetch/XHR in the page’s MAIN world to capture submissions even under strict CSPs. DOM/Shadow-DOM fallback crawling recovers code if network payloads are missed. A durable FIFO retry queue in chrome.storage.local survives service-worker shutdowns, with exponential backoff through chrome.alarms. Commits land through a single atomic GraphQL createCommitOnBranch mutation.
+
+Sheet 4 — Result
+
+v1.0.0, zero runtime dependencies. 39 tests across 4 suites, all passing. Auto-bootstraps empty repositories, detects the default branch with main → master fallback, and includes one-click repository creation and connectivity testing.
+
+Sheet 5 — Links
+
+GitHub: Shivala-08/unisync · Planned: LeetCode and Codeforces as additional sources
+
+⸻
+
+3. Omnitrix OS
+
+Sheet 1 — Overview
+
+Omnitrix OS
+An immersive, high-fidelity interactive digital replication of the classic Ben 10 Omnitrix interface, built as a premium browser-based WebGL experience.
+
+Sheet 2 — Problem
+
+Most interface recreations stop at static visuals or flat mockups. The goal was to recreate the feeling of an actual interactive device — with 3D rendering, motion, sound, voice control, responsive controls, and persistent state.
+
+Sheet 3 — Build
+
+Next.js 16 and React 19 with Three.js / React Three Fiber for 3D rendering, GSAP and Framer Motion for motion, Zustand for state, TanStack Query for network data, and Howler.js for sound. Includes an interactive 3D dial, Web Speech API commands, microphone-driven waveform visualization, a 62-species DNA Codex, fusion lab, radar, session statistics, and offline PWA support.
+
+Sheet 4 — Result
+
+A fully deployed interactive Omnitrix experience with 3D controls, voice commands, synthesized interface audio, persistent session data, responsive layouts, and offline-installable PWA support.
+
+Sheet 5 — Links
+
+GitHub: Shivala-08/ben-10-os · Live Demo: ben-10-os.vercel.app
+
+⸻
+
+4. CineVault
+
+Sheet 1 — Overview
+
+CineVault
+A cinematic movie discovery and watchlist application built around the TMDB API.
+
+Sheet 2 — Problem
+
+Movie discovery can easily become either a basic search interface or an overloaded streaming-service clone. CineVault focuses instead on a focused discovery experience built around browsing, mood, and personal watchlists.
+
+Sheet 3 — Build
+
+Built with Next.js 16 App Router, Tailwind CSS, Framer Motion, Zustand, React Query, and the TMDB API. Includes an infinite trending feed, dynamic search overlay, mood-based recommendations, locally persisted watchlists and favorites, trailer modals with cast/genre/plot information, and responsive layouts from mobile to ultra-wide displays.
+
+Sheet 4 — Result
+
+Live and shipped as a responsive cinematic discovery experience. The current version includes a Next.js 16 upgrade, responsive layouts down to 320px screens, polished Tailwind-based UI, and persistent browser-side watchlists.
+
+Sheet 5 — Links
+
+GitHub: Shivala-08/cinevault · Live Demo: cinevault-eight-red.vercel.app
+
+⸻
+
+5. Marlboro Red
+
+Sheet 1 — Overview
+
+Marlboro Red
+A small React + TypeScript + Vite web experiment currently built from the standard Vite React starter structure.
+
+Sheet 2 — Problem
+
+The repository does not currently document a distinct product problem, user workflow, or technical objective beyond establishing a React/Vite application.
+
+Sheet 3 — Build
+
+React + TypeScript + Vite with the standard Vite React setup and ESLint configuration. The repository currently contains the default starter structure rather than a documented custom architecture.
+
+Sheet 4 — Result
+
+The repository is publicly available and has a deployed Vercel instance, but the current repository contains only one commit and its README remains the default Vite template.
+
+Sheet 5 — Links
+
+GitHub: Shivala-08/malboro · Live: malboro-rho.vercel.app
+
+⸻
+
+6. DeployForge
+
+Sheet 1 — Overview
+
+DeployForge
+Git-backed deployment infrastructure that turns a repository into a deployed static site through an automated build pipeline.
+
+Sheet 2 — Problem
+
+Static-site deployment normally requires a repetitive compile loop: clone → install → build → copy → commit → push → deploy. Serverless application runtimes also cannot safely compile arbitrary external projects inside the request lifecycle.
+
+Sheet 3 — Build
+
+A repository_dispatch event triggers a GitHub Actions runner, which clones the target repository, installs dependencies, and builds it inside an isolated build zone. A path-rewriter then fixes absolute asset references before the compiled site is committed into public/sites/{siteId}/, allowing Vercel to redeploy it automatically.
+
+Sheet 4 — Result
+
+Production deployment infrastructure with a measured local production build time of approximately 15 seconds. The Git-backed architecture provides version history and persistence, with a documented 30–60 second Vercel propagation tradeoff.
+
+Sheet 5 — Links
+
+GitHub: Shivala-08/deploy-forge · Live Demo: deploy-forge-4klc.vercel.app
+
+⸻
+
+7. doc–strange
+
+Sheet 1 — Overview
+
+doc–strange
+A real-time webcam experience that tracks hand gestures and turns them into Doctor Strange-style magical portals, rune shields, sparks, and spatial effects.
+
+Sheet 2 — Problem
+
+Build a webcam interaction that feels responsive rather than like a static visual overlay. The system needs to translate noisy real-world hand movement into stable gestures while synchronizing visual effects, portal geometry, particles, and audio in real time.
+
+Sheet 3 — Build
+
+MediaPipe performs real-time hand landmark tracking with EMA smoothing to reduce jitter. The web client uses Vanilla JavaScript and HTML5 Canvas 2D, while the Python version uses MediaPipe with OpenCV. Gesture states control portal summoning, dismissal, palette switching, fingertip sparks, and the large two-hand spatial portal. Web Audio API and Python audio synthesis provide contextual sound effects. Portal geometry is mathematically tuned so the destination mask remains inside the fiery ring without visual bleed-through.
+
+Sheet 4 — Result
+
+A cross-platform real-time hand-controlled visual experience available as both a browser application and a local Python application. It supports multiple gesture-driven spell states, dynamic portal scaling, rotating rune shields, particle effects, spatial portal composition, and synthesized audio.
+
+Sheet 5 — Links
+
+GitHub: Shivala-08/doc--strange · Live: doctor-strange-filter.vercel.app
