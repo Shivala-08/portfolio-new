@@ -57,7 +57,7 @@ All five phases from TRD §9:
 | 6. Performance/Lighthouse pass | not measured yet — see below |
 | 7. Easter-egg layer (Task Manager, achievements, BSOD, archive, context menu, Clippy, multiplayer cursors) | done |
 | 8. Bookshelf — Three.js 3D shelf of the 7 projects, paged reader, generated from `shelf-demo/` | done |
-| 9. Shelf atmosphere (per `shelf-atmosphere-features-manual.md`) — stamp cards, reserved volume, margin notes, card catalog, checkout contact flow, light shaft + motes, ambient sound | done |
+| 9. Shelf atmosphere (per `shelf-atmosphere-features-manual.md`) — stamp cards, reserved volume, margin notes, card catalog, light shaft + motes, ambient sound | done |
 
 ## Structure
 
@@ -69,7 +69,7 @@ components/
                          ArchiveHotspot, ContextMenu, CrashOverlay (BSOD),
                          BootTransition (Windows-Update), TaskManagerTrayButton
   windows/               About, Todo, BrowserHistory, Project, Resume, Contact,
-                         CheckoutSlip, Lab, TaskManager, Bookshelf (DOM + iframe)
+                         Lab, TaskManager, Bookshelf (DOM + iframe)
   widgets/               Now Playing, Screen-time counter, Achievement toasts
   ui/parts.tsx           status badges, tags, metric cards, <details> case studies
   NoJsFallback.tsx       noscript readable page
@@ -191,16 +191,11 @@ The seven features from `shelf-atmosphere-features-manual.md`, all live:
 | **Reserved volume** | An 8th spine, set apart by a gap: **The Skynet** (the manual's example "Jarvis" isn't a real project here). Opens a Sheet-1-only "still being written" notice in the DOM shelf; in the 3D shelf it's bound in dull slate cloth with a stamped RESERVED band instead of cover art. |
 | **Margin notes** | Handwritten asides on exactly 2 sheets (Deploy Forge's Result, UniSync's Build) — `marginNote` in the data. |
 | **Card catalog** | "Card catalog" pull in the shelf footer: wooden drawer, index cards per volume, tag filter row, fully keyboard-navigable, opens the same reader. |
-| **Checkout contact flow** | Contact window → "check out a conversation": a borrower's slip with a Check Out stamp button and a stamped `CHECKED OUT — [date]` confirmation. |
 | **Light shaft + dust motes** | 3D shelf only: additive-blend gradient shaft off to the right (never in front of a book) + 44 drifting motes. The demo's `addDust()` was dead code — defined, never called; the port replaces it and calls it. Frozen under reduced motion. |
 | **Ambient sound** | Page-turn SFX on open/turn + a quiet synthesized room tone (3 variants), toggle in the shelf's top-right corner. **Defaults off**, no `AudioContext` is created until the visitor opts in. |
 
 Two notes:
 
-- The checkout slip POSTs JSON to `NEXT_PUBLIC_CHECKOUT_ENDPOINT` when that env
-  var is set (any form-to-email route works — the endpoint owns rate limiting
-  and secrets). Without it the slip still stamps, clearly labelled as a demo
-  slip that sent nothing.
 - The reserved volume stays out of the featured `PROJECTS` array on purpose —
   the 7-project feature set is a contract (`build-port.py` fails on any other
   count), and the shelf's reserved slot reads `RESERVED_BOOK` from
@@ -214,13 +209,10 @@ dashed notes so they can't be shipped by accident.
 
 | What | Where | Action |
 |---|---|---|
-| Resume PDF | `public/resume.pdf` | drop the PDF in; the download button currently 404s |
-| Now Playing track | `lib/content.ts` → `NOW_PLAYING` | pick a track/artist, or wire the real API |
 | Repo slugs (7) | `lib/projects.ts` → `links.github` | **click-tested 2026-09-24**: 6 of 7 resolve; `unisync` returns 404 (repo not public yet), so its link is withheld rather than shipped dead — restore it once published |
 | New repo copy (4) | `lib/projects.ts` → context-shifter, unisync, marlboro-red, doc-strange | summaries/taglines are **placeholders**; replace with real copy + stacks |
 | Narrated projects | About/Lab/Todo windows reference The Skynet as **history** | it's real work but no longer a featured tile — trim if unwanted |
 | 116 FPS methodology | `lib/projects.ts` → Omnitrix metrics | document device/scene/measurement, or drop the metric |
-| Checkout endpoint | `NEXT_PUBLIC_CHECKOUT_ENDPOINT` env var | set it to a form-to-email route so the Contact checkout slip sends for real (it demo-stamps honestly until then) |
 | Skynet write-up | `lib/shelfAtmosphere.ts` → `RESERVED_BOOK` | the reserved volume un-reserves once the full case study is written |
 
 To find them all:

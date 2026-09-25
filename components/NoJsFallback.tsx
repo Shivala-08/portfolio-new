@@ -35,13 +35,6 @@ export function NoJsFallback() {
 
         <ul className="mt-3 space-y-1 text-[12px]">
           <li>
-            Resume:{" "}
-            <a className="underline" href={PERSON.resumeHref}>
-              {PERSON.resumeHref}
-            </a>{" "}
-            (TODO: add public/resume.pdf)
-          </li>
-          <li>
             GitHub:{" "}
             <a className="underline" href={PERSON.github}>
               {PERSON.github}

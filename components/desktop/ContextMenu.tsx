@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Archive, Bug, ChevronRight, ExternalLink, Wrench } from "lucide-react";
+import { Archive, Bug, ChevronRight, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { PERSON } from "@/lib/content";
 import { triggerCrash } from "@/components/desktop/CrashOverlay";
@@ -27,7 +27,7 @@ type MenuItem = {
 };
 
 const MENU_W = 250;
-const MENU_H = 200;
+const MENU_H = 165;
 
 export function ContextMenu() {
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
@@ -50,12 +50,6 @@ export function ContextMenu() {
   }, []);
 
   const items: MenuItem[] = [
-    {
-      label: "Inspect Element",
-      hint: "no.",
-      icon: Wrench,
-      onSelect: () => setPos(null),
-    },
     {
       label: "View Source",
       hint: "the real thing",

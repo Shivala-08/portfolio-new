@@ -46,7 +46,7 @@ export const WINDOW_DEFS: Record<string, WindowDefinition> = {
   resume: {
     id: "resume",
     label: "Resume",
-    title: "resume.pdf",
+    title: "resume.md",
     component: "resume",
     defaultPosition: { x: 880, y: 150 },
     defaultSize: { width: 330, height: 400 },

@@ -18,8 +18,6 @@ export const PERSON = {
   githubHandle: "Shivala-08",
   email: "pallavdholariya@gmail.com",
   linkedin: "https://www.linkedin.com/in/pallavdholariya",
-  // TODO: drop your PDF at public/resume.pdf
-  resumeHref: "/resume.pdf",
 } as const;
 
 export const AVAILABILITY = [
@@ -151,11 +149,10 @@ export const STICKY_NOTES: StickyNoteContent[] = [
   },
 ];
 
-/** Static/curated for v1 per TRD §4 — no Spotify OAuth. */
+/** The tray's now-playing track — a real local file, played by the widget. */
 export const NOW_PLAYING = {
-  // TODO: pick a real track + artist (or wire the real Spotify API in v1.1)
-  track: "TODO: track title",
-  artist: "TODO: artist",
-  album: "TODO: album",
-  isPlaceholder: true,
+  track: "Gentle Rain on Window",
+  artist: "Eryliaa",
+  album: "Ambient",
+  src: "/audio/gentle-rain-on-window.mp3",
 } as const;

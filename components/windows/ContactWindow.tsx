@@ -1,7 +1,6 @@
 import { ExternalLink, GitBranch, Mail, MapPin, Share2 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/parts";
 import { AVAILABILITY, PERSON } from "@/lib/content";
-import { CheckoutSlip } from "@/components/windows/CheckoutSlip";
 
 /**
  * Contact window (design doc §6). All three rows render as real links.
@@ -58,13 +57,6 @@ export function ContactWindow() {
             </li>
           ))}
         </ul>
-      </section>
-
-      {/* Checkout-style contact flow (shelf-atmosphere-features-manual.md §5):
-          the contact form as a library borrower's slip with a Check Out stamp. */}
-      <section>
-        <SectionHeading>check out a conversation</SectionHeading>
-        <CheckoutSlip />
       </section>
     </div>
   );

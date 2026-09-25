@@ -79,15 +79,11 @@ tags: string[]; // e.g. ["AI/ML", "infra"], ["creative-coding"], etc.
 
 ---
 
-## 5. Checkout-style contact flow
+## 5. Checkout-style contact flow — RETIRED by owner decision
 
-**What it is:** reframe your contact form as a library checkout slip.
-
-**Build:**
-- Fields: Name, one line ("what are you reaching out about?"), submit button styled as a "Check Out" stamp button
-- On submit: instead of a generic "message sent" toast, show a stamped confirmation — "CHECKED OUT — [today's date]" with the same stamp-card visual treatment from Section 1, reusing that component rather than building a new one
-- Backend: same as any contact form — a serverless function sending you an email, or a simple form-to-email service. No new infrastructure needed beyond what a normal contact form requires
-- Keep the actual functional requirements from earlier work (rate-limit if it's a live email send, fail gracefully, never expose API keys client-side)
+The contact form was removed from the site entirely (no form, no endpoint), so
+this section is kept as build history only. The contact window now shows direct
+links (GitHub / email / LinkedIn) with no submission path.
 
 ---
 
