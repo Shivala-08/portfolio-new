@@ -4,7 +4,7 @@ import { TODOS } from "@/lib/content";
 /**
  * Todo window (PRD §6.4, TRD §4). Doubles as an honest "currently building"
  * status: the crossed-out items are shipped work, the open ones are the real
- * backlog — including the two Synapse questions he hasn't answered yet.
+ * backlog — including the Skynet write-up and the UniSync publish he hasn't finished yet.
  */
 export function TodoWindow() {
   const doneCount = TODOS.filter((todo) => todo.done).length;

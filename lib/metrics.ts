@@ -9,13 +9,21 @@
 
 export type DashboardMetric = {
   /** Where the number comes from — ties the dashboard back to the case studies. */
-  project: "deploy-forge" | "the-skynet" | "synapse";
+  project: "deploy-forge" | "the-skynet" | "omnitrix-os";
+  /** Display name for the source project. */
+  projectLabel: string;
+  /**
+   * Window id that proves the number (project window or shelf). Absent when the
+   * source project has no window yet — the dashboard then shows the label as
+   * plain text rather than a dead link.
+   */
+  windowId?: string;
   value: string;
   label: string;
   /** What the number actually measures. Never render a metric without this. */
   context: string;
   /** Grouping on the dashboard. */
-  group: "performance" | "ai-retrieval" | "tradeoff";
+  group: "performance" | "tradeoff";
   /** Set when the number documents a cost, not just a win. */
   tradeoff?: boolean;
   /** Set when the claim is not yet backed by a documented measurement. */
@@ -25,6 +33,8 @@ export type DashboardMetric = {
 export const DASHBOARD_METRICS: DashboardMetric[] = [
   {
     project: "the-skynet",
+    projectLabel: "The Skynet · reserved volume",
+    windowId: "shelf",
     value: "883 KB → 24.9 KB",
     label: "3D bundle cost",
     context:
@@ -33,6 +43,8 @@ export const DASHBOARD_METRICS: DashboardMetric[] = [
   },
   {
     project: "deploy-forge",
+    projectLabel: "Deploy Forge",
+    windowId: "project:deploy-forge",
     value: "~15s",
     label: "Local production build",
     context:
@@ -41,6 +53,8 @@ export const DASHBOARD_METRICS: DashboardMetric[] = [
   },
   {
     project: "deploy-forge",
+    projectLabel: "Deploy Forge",
+    windowId: "project:deploy-forge",
     value: "~30–60s",
     label: "Vercel propagation delay",
     context:
@@ -49,57 +63,9 @@ export const DASHBOARD_METRICS: DashboardMetric[] = [
     tradeoff: true,
   },
   {
-    project: "synapse",
-    value: "0.875",
-    label: "Recall@5",
-    context:
-      "Measured on a 40-question ground-truth dataset with LLM generation disabled (LLM-disabled evaluation) and a local SentenceTransformer sandbox.",
-    group: "ai-retrieval",
-  },
-  {
-    project: "synapse",
-    value: "0.667",
-    label: "MRR",
-    context:
-      "Mean Reciprocal Rank on the same 40-question ground truth — how high the correct document lands on average.",
-    group: "ai-retrieval",
-  },
-  {
-    project: "synapse",
-    value: "62.5%",
-    label: "Retrieval accuracy",
-    context:
-      "Ground-truth hit rate on the 40-question dataset under LLM-disabled evaluation — measures retrieval, not answer quality.",
-    group: "ai-retrieval",
-  },
-  {
-    project: "synapse",
-    value: "207 ms",
-    label: "Query latency",
-    context:
-      "Measured end-to-end retrieval query latency on the same evaluation harness.",
-    group: "performance",
-  },
-  {
-    project: "synapse",
-    value: "+11 pts",
-    label: "Cross-encoder reranking",
-    context:
-      "The largest single accuracy improvement — bought with a latency cost, see the paired metric.",
-    group: "tradeoff",
-    tradeoff: true,
-  },
-  {
-    project: "synapse",
-    value: "~200 ms",
-    label: "Reranker latency penalty",
-    context:
-      "What the +11 accuracy points cost in query time. Roughly doubles the 207 ms baseline — the tradeoff is documented, not hidden.",
-    group: "tradeoff",
-    tradeoff: true,
-  },
-  {
-    project: "the-skynet",
+    project: "omnitrix-os",
+    projectLabel: "Omnitrix OS",
+    windowId: "project:omnitrix-os",
     value: "116 FPS",
     label: "Reported frame rate",
     context:

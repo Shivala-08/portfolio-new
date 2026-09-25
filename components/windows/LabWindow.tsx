@@ -34,7 +34,7 @@ export function LabWindow() {
       <SectionHeading hint="none of these have a deadline">how the list works</SectionHeading>
       <p className="text-[11.5px] leading-relaxed text-ink-soft">
         A topic stays here until it turns into a measurement, an architecture decision, or a project.
-        One already did: retrieval evaluation became Synapse&apos;s 40-question ground truth. Process
+        One already did: the Skynet bundle cost became a measured 883 KB → 24.9 KB rewrite. Process
         isolation is heading the same way — Deploy Forge already compiles in an isolated build zone.
       </p>
     </div>

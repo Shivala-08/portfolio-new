@@ -218,7 +218,7 @@ dashed notes so they can't be shipped by accident.
 | Now Playing track | `lib/content.ts` → `NOW_PLAYING` | pick a track/artist, or wire the real API |
 | Repo slugs (7) | `lib/projects.ts` → `links.github` | **click-tested 2026-09-24**: 6 of 7 resolve; `unisync` returns 404 (repo not public yet), so its link is withheld rather than shipped dead — restore it once published |
 | New repo copy (4) | `lib/projects.ts` → context-shifter, unisync, marlboro-red, doc-strange | summaries/taglines are **placeholders**; replace with real copy + stacks |
-| Narrated projects | About/Lab/Todo windows reference The Skynet & Synapse as **history** | they're real work but no longer featured tiles — trim if unwanted |
+| Narrated projects | About/Lab/Todo windows reference The Skynet as **history** | it's real work but no longer a featured tile — trim if unwanted |
 | 116 FPS methodology | `lib/projects.ts` → Omnitrix metrics | document device/scene/measurement, or drop the metric |
 | Checkout endpoint | `NEXT_PUBLIC_CHECKOUT_ENDPOINT` env var | set it to a form-to-email route so the Contact checkout slip sends for real (it demo-stamps honestly until then) |
 | Skynet write-up | `lib/shelfAtmosphere.ts` → `RESERVED_BOOK` | the reserved volume un-reserves once the full case study is written |
@@ -236,5 +236,5 @@ grep -rn "TODO" lib components app
   so it should clear these, but that's an assumption until it's run.
 - Per-project case-study depth (`identity.txt` §37 lists 12 sections; the windows currently
   carry summary + metrics + architecture + constraint/experiment/failure/tradeoffs).
-- The engineering metrics dashboard (`identity.txt` §38) as its own window.
+- The engineering metrics dashboard (`identity.txt` §38) as its own window. (Done: Metrics taskbar entry → `MetricsWindow`, fed by `lib/metrics.ts`.)
 - `localStorage` persistence and the real Spotify widget, once v1 is live.

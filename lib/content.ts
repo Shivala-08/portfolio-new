@@ -45,7 +45,7 @@ export const PRINCIPLES = [
  */
 export const ABOUT_NOTES: string[] = [
   "I build systems across AI, infrastructure and interactive computing — and I like understanding what happens underneath the abstractions.",
-  "That's not a tagline, it's just the pattern in everything I've made so far. I didn't want to deploy static sites by hand anymore, so I built a deployment pipeline. I didn't like what a 3D framework cost me in bundle size, so I wrote the renderer. I didn't want to claim my retrieval worked, so I built a 40-question ground truth and measured it.",
+  "That's not a tagline, it's just the pattern in everything I've made so far. I didn't want to deploy static sites by hand anymore, so I built a deployment pipeline. I didn't like what a 3D framework cost me in bundle size, so I wrote the renderer. I don't trust a number I didn't measure, so every metric on this site carries what it actually measured.",
   "The through-line: I get suspicious of anything I can't explain from the bottom up. When camera picking broke in The Skynet, the answer was a column-major matrix inversion bug in my own Mat4.invert — no library to blame, which is exactly why I wanted to own that code.",
   "I'm a second-year B.Tech CSE (AI & ML) student at Newton School of Technology × ADYPU in Pune. Most of what I know came from shipping things and then reading up on why they were slow.",
 ];
@@ -60,9 +60,9 @@ export const LAB_TOPICS: LabTopic[] = [
     question: "Dynamic semantic boundary chunking versus fixed-token limits — where does the boundary actually belong?",
   },
   {
-    tag: "RAG",
-    title: "Retrieval evaluation",
-    question: "Repeatable automated retrieval metrics, so an accuracy claim survives being re-run next month.",
+    tag: "Perf",
+    title: "Bundle budgets",
+    question: "How small can the interactive parts stay before the experience starts costing more than it's worth?",
   },
   {
     tag: "GPU",
@@ -94,10 +94,8 @@ export const TODOS: Todo[] = [
   { text: "The Skynet: replace Mat4.invert indexing fix with a tested matrix module", done: true },
   { text: "Shrink the Skynet 3D chunk below 25 KB", done: true },
   { text: "CineVault: API integration + discovery flow", done: true },
-  { text: "Synapse: 40-question ground truth dataset", done: true },
-  { text: "Synapse: cross-encoder reranker experiment", done: true },
-  { text: "Synapse: multi-hop synthesis — semantic similarity isn't enough", done: false },
-  { text: "Synapse: decide whether +11 accuracy pts is worth +200 ms", done: false },
+  { text: "The Skynet: write the full case study so the shelf un-reserves the volume", done: false },
+  { text: "UniSync: publish the repo so the shelf link goes live", done: false },
   { text: "Omnitrix OS: document the 116 FPS methodology properly (device, scene, sustained?)", done: false },
   { text: "Deploy Forge: stop deploys from redeploying the platform itself", done: false },
   { text: "Write up the sub-path hosting story as a real case study", done: false },
@@ -125,7 +123,7 @@ export const STICKY_NOTES: StickyNoteContent[] = [
   },
   {
     id: "tradeoff",
-    text: "+11 accuracy pts, +200 ms. is it worth it? (yes. maybe. measure again.)",
+    text: "883 KB → 24.9 KB. deleting code is a feature.",
     tone: "pink",
     rotate: 1.8,
     position: { x: 16, y: 430 },
@@ -139,7 +137,7 @@ export const STICKY_NOTES: StickyNoteContent[] = [
   },
   {
     id: "2am",
-    text: "why does retrieval only break at 2am",
+    text: "why does everything only break at 2am",
     tone: "yellow",
     rotate: 3.4,
     position: { x: 1080, y: 300 },

@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useAchievementStore } from "@/lib/achievements";
 
 /**
- * The fake crash screen ("SYNAPSE_STOPPED_RESPONDING … just kidding").
+ * The fake crash screen ("DESKTOP_STOPPED_RESPONDING … just kidding").
  *
  * Two triggers, both throttled hard so it stays a joke:
  *   - a rare random flash (min 4 minutes apart, and never in the first minute)
@@ -31,7 +31,7 @@ export function triggerCrash() {
 
 const LINES = [
   "A problem has been detected and this portfolio has been shut down to prevent damage to your first impression.",
-  "SYNAPSE_STOPPED_RESPONDING",
+  "DESKTOP_STOPPED_RESPONDING",
   "If this is the first time you've seen this Stop error screen, congratulations — it means you're paying attention.",
   "Technical information: *** STOP: 0x00000047 (0xTABS, 0xOPEN, 0xC0FFEE, 0xDECAFBAD)",
   "Beginning dump of excuses… just kidding. Restarting.",

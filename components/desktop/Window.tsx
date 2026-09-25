@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Minus, X } from "lucide-react";
 import { Rnd } from "react-rnd";
 import { cn } from "@/lib/cn";
-import { isOverHotspot } from "@/lib/archiveHotspot";
+import { eventPoint, isElementOverHotspot, isOverHotspot } from "@/lib/archiveHotspot";
 import { useWindowStore } from "@/lib/windowStore";
 import { clampPosition, clampSize, sheetPosition, sheetSize } from "@/lib/viewport";
 import type { Viewport, WindowState } from "@/lib/types";
@@ -79,7 +79,15 @@ export function Window({ win, index, focused, viewport, children }: WindowProps)
       }}
       onDragStop={(event, data) => {
         setDragCandidate(null);
-        if (isOverHotspot(event.clientX, event.clientY)) {
+        // Two hit paths: the cursor over the icon (precise), or the dragged
+        // window's own rect overlapping it (forgiving — a big window can cover
+        // the 44px icon while the cursor sits outside it). Touch drags have no
+        // clientX, so a null point just skips the cursor path.
+        const point = eventPoint(event);
+        const droppedOnHotspot =
+          (point ? isOverHotspot(point.x, point.y) : false) ||
+          isElementOverHotspot(data?.node);
+        if (droppedOnHotspot) {
           // Commit the drop position first: the exit animation reads the store
           // position, and without this the window visibly snaps back to where
           // the drag started before being sucked into the hotspot.

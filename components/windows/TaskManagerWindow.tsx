@@ -9,8 +9,8 @@ import { cn } from "@/lib/cn";
  * The fake Task Manager (the Ctrl+Alt+Del easter egg).
  *
  * The process list is the joke, tuned to the portfolio's real running gags
- * (Synapse's +11 pts/+200 ms, the unverified 116 FPS, the self-redeploying
- * Deploy Forge, npm, 47 tabs, 2am retrieval) rather than generic filler.
+ * (the unverified 116 FPS, the self-redeploying Deploy Forge, npm, 47 tabs,
+ * the 2am gremlin) rather than generic filler.
  * Values start deterministic so markup matches across renders; the CPU jitter
  * only starts after mount and never runs for reduced motion.
  *
@@ -20,7 +20,7 @@ import { cn } from "@/lib/cn";
  *   - imposter_syndrome.dll is the only process that stays dead.
  *   - Discipline.sys refuses End Task: "Access Denied" (it's load-bearing).
  *   - Coffee.exe can be Resumed, which spikes the CPU and changes nothing.
- *   - 2am_retrieval.exe only Not-Responds between 2 and 5am, local time.
+ *   - 2am_gremlin.exe only Not-Responds between 2 and 5am, local time.
  */
 
 type ProcessState = "running" | "notResponding" | "suspended" | "notFound";
@@ -59,7 +59,7 @@ const PROCESSES: Process[] = [
   { name: "Omnitrix_116fps.exe", cpu: 116, mem: "116,000 K", state: "running", unverified: true },
   { name: "npm_install.exe", cpu: 47, mem: "66,600 K", state: "notResponding", endable: true, respawns: true, respawnNote: "installing dependencies…", achievement: "npm" },
   { name: "Skynet_renderer.exe", cpu: 8, mem: "25,000 K", state: "running" },
-  { name: "2am_retrieval.exe", cpu: 4, mem: "12,047 K", state: "running", breaksAt2am: true },
+  { name: "2am_gremlin.exe", cpu: 4, mem: "12,047 K", state: "running", breaksAt2am: true },
   { name: "docstrange_portal.exe", cpu: 9, mem: "47,200 K", state: "running" },
   { name: "imposter_syndrome.dll", cpu: 3, mem: "6,400 K", state: "running", endable: true },
   { name: "Coffee.exe", cpu: null, mem: "0 K", state: "suspended", resumable: true },

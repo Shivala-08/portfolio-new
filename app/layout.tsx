@@ -13,7 +13,7 @@ const caveat = Caveat({ subsets: ["latin"], variable: "--font-caveat", display: 
 export const metadata: Metadata = {
   title: "47 Tabs Open — Pallav Dholariya",
   description:
-    "Portfolio of Pallav Dholariya — AI/ML Engineer · Systems Builder. Deployment infrastructure, a custom WebGL renderer, and retrieval systems that were measured rather than asserted.",
+    "Portfolio of Pallav Dholariya — AI/ML Engineer · Systems Builder. Deployment infrastructure, a custom WebGL renderer, and measurements that carry what they actually measured.",
 };
 
 export const viewport: Viewport = {

@@ -1959,6 +1959,11 @@
 
     // Seven 2:3 cover artworks arranged left to right in one embedded atlas.
     const coverImages = BOOKS.map((book) => {
+      // The reserved volume carries no coverUrl — null keeps it out of
+      // the decode set below (filter(Boolean) only works on nulls, and
+      // an Image with an empty src rejects decode() and would poison the
+      // whole Promise.all gate into procedural covers for every book).
+      if (!book.coverUrl) return null;
       const image = new Image();
       image.decoding = "async";
       image.src = book.coverUrl;
@@ -5985,7 +5990,7 @@
       }
 
       try {
-        await Promise.all(
+        await Promise.allSettled(
           coverImages.filter(Boolean).map((image) => image.decode())
         );
         coverAtlasReady = coverImages.every(

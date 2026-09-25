@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Archive } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { isOverHotspot, registerHotspot } from "@/lib/archiveHotspot";
+import { isOverHotspot, eventPoint, registerHotspot } from "@/lib/archiveHotspot";
 import { useWindowStore } from "@/lib/windowStore";
 
 /**
@@ -34,7 +34,10 @@ export function ArchiveHotspot() {
       setHovered(false);
       return;
     }
-    const onMove = (e: PointerEvent) => setHovered(isOverHotspot(e.clientX, e.clientY));
+    const onMove = (e: PointerEvent) => {
+      const point = eventPoint(e);
+      if (point) setHovered(isOverHotspot(point.x, point.y));
+    };
     document.addEventListener("pointermove", onMove);
     return () => document.removeEventListener("pointermove", onMove);
   }, [active]);

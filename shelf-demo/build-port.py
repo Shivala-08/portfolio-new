@@ -363,6 +363,11 @@ sub(
     r"    coverAtlasImage\.decoding = \"async\";\n    coverAtlasImage\.src = COVER_ATLAS_DATA;\n"
     r"    let coverAtlasReady = false;\n",
     "    const coverImages = BOOKS.map((book) => {\n"
+    "      // The reserved volume carries no coverUrl — null keeps it out of\n"
+    "      // the decode set below (filter(Boolean) only works on nulls, and\n"
+    "      // an Image with an empty src rejects decode() and would poison the\n"
+    "      // whole Promise.all gate into procedural covers for every book).\n"
+    "      if (!book.coverUrl) return null;\n"
     "      const image = new Image();\n"
     "      image.decoding = \"async\";\n"
     "      image.src = book.coverUrl;\n"
@@ -499,7 +504,7 @@ sub(
 sub(
     r"        await Promise\.all\(coverImages\.map\(\(image\) => image\.decode\(\)\)\);\n"
     r"        coverAtlasReady = coverImages\.every\(\(image\) => image\.naturalWidth > 0\);",
-    "        await Promise.all(\n"
+    "        await Promise.allSettled(\n"
     "          coverImages.filter(Boolean).map((image) => image.decode())\n"
     "        );\n"
     "        coverAtlasReady = coverImages.every(\n"

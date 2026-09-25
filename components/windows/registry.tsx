@@ -4,6 +4,7 @@ import { AboutWindow } from "@/components/windows/AboutWindow";
 import { BrowserHistoryWindow } from "@/components/windows/BrowserHistoryWindow";
 import { ContactWindow } from "@/components/windows/ContactWindow";
 import { LabWindow } from "@/components/windows/LabWindow";
+import { MetricsWindow } from "@/components/windows/MetricsWindow";
 import { ProjectWindow } from "@/components/windows/ProjectWindow";
 import { ResumeWindow } from "@/components/windows/ResumeWindow";
 import { ShelfExperience } from "@/components/windows/ShelfExperience";
@@ -38,6 +39,8 @@ export function WindowContent({ win }: { win: WindowState }) {
       // The original Three.js shelf; falls back to the DOM reader under
       // prefers-reduced-motion (see ShelfExperience).
       return <ShelfExperience />;
+    case "metrics":
+      return <MetricsWindow />;
     default:
       return null;
   }

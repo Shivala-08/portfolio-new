@@ -20,8 +20,8 @@ export type Achievement = {
 
 /**
  * Sequence achievements: unlocked once every part in `all` has been recorded
- * (in any order). The synapse one is the "actually read the Synapse breakdown"
- * achievement — its parts are the case-study sections of the Synapse window.
+ * (in any order). The deep-dive one is the "actually read the Deploy Forge
+ * breakdown" achievement — its parts are the case-study sections of that window.
  */
 export const SEQUENCES = {
   explorer: {
@@ -86,12 +86,12 @@ export const ACHIEVEMENTS: Record<string, Achievement> = {
   "bsod-survivor": {
     id: "bsod-survivor",
     title: "Achievement unlocked: survived the crash",
-    body: "SYNAPSE_STOPPED_RESPONDING gets everyone once.",
+    body: "DESKTOP_STOPPED_RESPONDING gets everyone once.",
   },
   "2am": {
     id: "2am",
     title: "Achievement unlocked: it's past 2am",
-    body: "why does retrieval only break at 2am. why are you here at 2am.",
+    body: "why does everything only break at 2am. why are you here at 2am.",
   },
   assistant: {
     id: "assistant",
@@ -112,7 +112,7 @@ const MAX_TOASTS = 3;
 type AchievementStore = {
   /** Unlocked ids this visit — never re-fires. */
   unlocked: ReadonlySet<string>;
-  /** Parts seen per sequence id, e.g. "read-synapse" -> {"synapse-constraint", …}. */
+  /** Parts seen per sequence id, e.g. "deep-dive" -> {"df-constraint", …}. */
   sequenceProgress: Record<string, ReadonlySet<string>>;
   /** Live toast queue; the component animates these in the corner. */
   toasts: Achievement[];
