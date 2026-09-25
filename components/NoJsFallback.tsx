@@ -47,7 +47,18 @@ export function NoJsFallback() {
               {PERSON.github}
             </a>
           </li>
-          <li>Email: {PERSON.email} (TODO — not in the knowledge base yet)</li>
+          <li>
+            Email:{" "}
+            <a className="underline" href={`mailto:${PERSON.email}`}>
+              {PERSON.email}
+            </a>
+          </li>
+          <li>
+            LinkedIn:{" "}
+            <a className="underline" href={PERSON.linkedin}>
+              {PERSON.linkedin.replace(/^https:\/\//, "")}
+            </a>
+          </li>
           <li>Based in {PERSON.location}</li>
         </ul>
 

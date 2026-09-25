@@ -119,7 +119,7 @@ the no-JS fallback and the accessibility contract are untouched.
 | **Achievement toasts** | Open the resume, open every window, read the Deploy Forge constraint AND tradeoffs sections, pull a volume off the Bookshelf, end imposter_syndrome.dll, try to end Discipline.sys, kill npm_install.exe, resume Coffee.exe, archive a window, archive everything via right-click, survive the crash, dismiss Clippy, or visit between 2–5am. |
 | **BSOD flash** | Rare random trigger (never in the first minute, ≥4 min apart, ~1.1s) or right-click → "Trigger a critical error". |
 | **Screen-time counter** | Taskbar tray, counts up honestly from page load. |
-| **Drag-to-archive** | Drag any window's title bar onto the bottom-left dashed icon. |
+| **Drag-to-archive** | Drag any window's title bar onto the bottom-left dashed icon. The drop zone is a fixed-size hit area that stays put while a drag is active, the icon lifts above the dragged window so the target is visible, and the drop position is committed before the suck-in animation plays (no snap-back to the pre-drag spot). |
 | **Custom context menu** | Right-click the desktop (inputs and text selections keep the native menu). "View Source" opens the real GitHub. |
 | **Windows-Update transition** | Plays once on load ("Configuring updates… 47%"); replays the first time the Task Manager opens. |
 | **Clippy assistant** | Starts 20s in, ≥45s between quips, max 5 per visit, "Never again" persists. |
@@ -214,8 +214,6 @@ dashed notes so they can't be shipped by accident.
 
 | What | Where | Action |
 |---|---|---|
-| Email address | `lib/content.ts` → `PERSON.email` | set it — the Contact row is a pending placeholder |
-| LinkedIn URL | `lib/content.ts` → `PERSON.linkedin` | set it |
 | Resume PDF | `public/resume.pdf` | drop the PDF in; the download button currently 404s |
 | Now Playing track | `lib/content.ts` → `NOW_PLAYING` | pick a track/artist, or wire the real API |
 | Repo slugs (7) | `lib/projects.ts` → `links.github` | **click-tested 2026-09-24**: 6 of 7 resolve; `unisync` returns 404 (repo not public yet), so its link is withheld rather than shipped dead — restore it once published |

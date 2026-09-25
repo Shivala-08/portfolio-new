@@ -2,8 +2,8 @@
  * Copy for the non-project windows.
  *
  * Everything factual here comes from identity.txt. The only placeholders left
- * are things the knowledge base genuinely does not contain: email, LinkedIn,
- * the resume file and the now-playing track. They are marked TODO and listed in
+ * are things the knowledge base genuinely does not contain: the resume file
+ * and the now-playing track. They are marked TODO and listed in
  * README "Placeholder checklist".
  */
 
@@ -16,10 +16,8 @@ export const PERSON = {
   education: "B.Tech CSE (AI & ML), Newton School of Technology × ADYPU",
   github: "https://github.com/Shivala-08",
   githubHandle: "Shivala-08",
-  // TODO: add your email address
-  email: "TODO",
-  // TODO: add your LinkedIn URL
-  linkedin: "TODO",
+  email: "pallavdholariya@gmail.com",
+  linkedin: "https://www.linkedin.com/in/pallavdholariya",
   // TODO: drop your PDF at public/resume.pdf
   resumeHref: "/resume.pdf",
 } as const;

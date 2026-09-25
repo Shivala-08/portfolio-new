@@ -80,6 +80,10 @@ export function Window({ win, index, focused, viewport, children }: WindowProps)
       onDragStop={(event, data) => {
         setDragCandidate(null);
         if (isOverHotspot(event.clientX, event.clientY)) {
+          // Commit the drop position first: the exit animation reads the store
+          // position, and without this the window visibly snaps back to where
+          // the drag started before being sucked into the hotspot.
+          move(win.id, clampPosition({ x: data.x, y: data.y }, size, viewport));
           archive(win.id);
           return;
         }

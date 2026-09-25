@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { useWindowStore } from "@/lib/windowStore";
 import { DEFAULT_OPEN_IDS, projectWindowId } from "@/lib/windows";
 
@@ -97,6 +97,52 @@ describe("windowStore", () => {
     useWindowStore.getState().open("about");
     useWindowStore.getState().close("about");
     expect(useWindowStore.getState().focusedId).toBeNull();
+  });
+
+  it("archive minimizes with the archiving flag and announces it", () => {
+    const { open, archive } = useWindowStore.getState();
+    vi.useFakeTimers();
+    try {
+      open("about");
+      archive("about");
+
+      const state = useWindowStore.getState();
+      const about = state.windows.find((w) => w.id === "about");
+      expect(about!.minimized).toBe(true);
+      expect(about!.archiving).toBe(true);
+      expect(state.focusedId).toBeNull();
+      expect(state.announcement).toBe("Archived about.md");
+
+      // The flag only drives the exit animation; it clears itself afterwards.
+      vi.advanceTimersByTime(450);
+      expect(useWindowStore.getState().windows.find((w) => w.id === "about")!.archiving).toBe(
+        false,
+      );
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it("archive is a no-op for unknown or already minimized windows", () => {
+    useWindowStore.getState().archive("does-not-exist");
+    expect(useWindowStore.getState().windows).toHaveLength(0);
+
+    useWindowStore.getState().open("about");
+    useWindowStore.getState().minimize("about");
+    useWindowStore.getState().archive("about");
+    const about = useWindowStore.getState().windows.find((w) => w.id === "about");
+    expect(about!.archiving).toBeUndefined();
+  });
+
+  it("setDragCandidate tracks the drag and clears it on stop", () => {
+    const { open, setDragCandidate } = useWindowStore.getState();
+    open("todo");
+
+    setDragCandidate("todo");
+    expect(useWindowStore.getState().dragCandidateId).toBe("todo");
+
+    setDragCandidate(null);
+    expect(useWindowStore.getState().dragCandidateId).toBeNull();
   });
 
   it("clears the announcement so a repeated message can re-announce", () => {

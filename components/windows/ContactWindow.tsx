@@ -1,23 +1,17 @@
 import { ExternalLink, GitBranch, Mail, MapPin, Share2 } from "lucide-react";
-import { PlaceholderNote, SectionHeading } from "@/components/ui/parts";
+import { SectionHeading } from "@/components/ui/parts";
 import { AVAILABILITY, PERSON } from "@/lib/content";
 import { CheckoutSlip } from "@/components/windows/CheckoutSlip";
 
-const isPending = (value: string) => value.startsWith("TODO");
-
 /**
- * Contact window (design doc §6). GitHub is real; email and LinkedIn are not in
- * the knowledge base yet, so they render as explicit pending rows instead of
- * dead links.
+ * Contact window (design doc §6). All three rows render as real links.
  */
 export function ContactWindow() {
   const rows = [
     { key: "github", label: "GitHub", value: PERSON.githubHandle, href: PERSON.github, Icon: GitBranch },
-    { key: "email", label: "Email", value: PERSON.email, href: null, Icon: Mail },
-    { key: "linkedin", label: "LinkedIn", value: PERSON.linkedin, href: null, Icon: Share2 },
+    { key: "email", label: "Email", value: PERSON.email, href: `mailto:${PERSON.email}`, Icon: Mail },
+    { key: "linkedin", label: "LinkedIn", value: PERSON.linkedin.replace(/^https:\/\//, ""), href: PERSON.linkedin, Icon: Share2 },
   ];
-
-  const pending = rows.filter((row) => isPending(row.value));
 
   return (
     <div className="space-y-4 text-[12.5px] leading-relaxed text-ink-soft">
@@ -51,13 +45,6 @@ export function ContactWindow() {
           <span className="text-[11.5px]">{PERSON.location}</span>
         </li>
       </ul>
-
-      {pending.length > 0 ? (
-        <PlaceholderNote>
-          TODO: email and LinkedIn aren&apos;t in the knowledge base yet. Set PERSON.email and
-          PERSON.linkedin in lib/content.ts and these rows become real links.
-        </PlaceholderNote>
-      ) : null}
 
       <section>
         <SectionHeading>currently open to</SectionHeading>
